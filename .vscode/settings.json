@@ -16,7 +16,7 @@
   // workbench
   "workbench.editor.enablePreview": false,
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Bearded Theme Void",
+  "workbench.colorTheme": "Bearded Theme Vivid Black",
 
   // prettier
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -33,5 +33,8 @@
     }
   },
   "terminal.integrated.defaultProfile.windows": "Git Bash",
-  "window.zoomLevel": -1
+  "window.zoomLevel": -1,
+  "editor.fontFamily": "'Fira Code', 'sans-serif', sans-serif",
+  "workbench.settings.useSplitJSON": false,
+  "editor.fontLigatures": true,
 }
