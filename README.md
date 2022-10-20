@@ -4,8 +4,6 @@
 Aplicação desenvolvida durante o evento Explorer da Rocketseat.
 </p>
 
-
-
 <p align="center">
   <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
 </p>
@@ -28,12 +26,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-O Starpay foi desenvolvido como intenção de um componente que simula o cadastro de cartão de crédito utilizados em diversas aplicações. 
+O Starpay foi desenvolvido como intenção de um componente que simula o cadastro de cartão de crédito utilizados em diversas aplicações.
 
+> [🔗 Clique aqui para acessar o projeto](https://starpay.vercel.app/)
 
 ## Licença
 
 Esse projeto está sob a licença MIT.
 
 ---
-
