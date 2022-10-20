@@ -102,9 +102,7 @@ addButton.addEventListener("click", () => {
   alert("Cartão Adicionado!")
 })
 
-document.querySelector("form").addEventListener("submit", (event) => {
-  event.preventDefault()
-})
+
 
 const cardHolder = document.querySelector("#card-holder")
 cardHolder.addEventListener("input", () => {
