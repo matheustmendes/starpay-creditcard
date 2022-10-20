@@ -3,34 +3,6 @@ import Imask from "imask"
 const ccBgColor01 = document.querySelector(".cc-bg svg > g g:nth-child(1) path")
 const ccBgColor02 = document.querySelector(".cc-bg svg > g g:nth-child(2) path")
 const ccLogo = document.querySelector(".cc-logo span:nth-child(2) img")
-const validateCVC = document.querySelector("#security-code")
-const validateCVCPattern = {
-  mask: "0000",
-}
-const validadeCVCMasked = Imask(validateCVC, validateCVCPattern)
-const validateExpirationDate = document.querySelector("#expiration-date")
-const ValidateExpirationDatePattern = {
-  mask: "MM{/}YY",
-  blocks: {
-    MM: {
-      mask: Imask.MaskedRange,
-      from: 1,
-      to: 12,
-    },
-
-    YY: {
-      mask: Imask.MaskedRange,
-      from: String(new Date().getFullYear()).slice(2),
-      to: String(new Date().getFullYear() + 10).slice(2),
-    },
-  },
-}
-
-const validateExpirationDateMasked = Imask(
-  validateExpirationDate,
-  ValidateExpirationDatePattern
-)
-
 function setCardType(type) {
   const colors = {
     visa: ["#2D57F2", "#436D99"],
@@ -55,6 +27,34 @@ function setCardType(type) {
 
   ccLogo.setAttribute("src", `cc-${type}.svg`)
 }
+const validateCVC = document.querySelector("#security-code")
+const validateCVCPattern = {
+  mask: "0000",
+}
+const validadeCVCMasked = Imask(validateCVC, validateCVCPattern)
+
+const validateExpirationDate = document.querySelector("#expiration-date")
+const ValidateExpirationDatePattern = {
+  mask: "MM{/}YY",
+  blocks: {
+    MM: {
+      mask: Imask.MaskedRange,
+      from: 1,
+      to: 12,
+    },
+
+    YY: {
+      mask: Imask.MaskedRange,
+      from: String(new Date().getFullYear()).slice(2),
+      to: String(new Date().getFullYear() + 10).slice(2),
+    },
+  },
+}
+
+const validateExpirationDateMasked = Imask(
+  validateExpirationDate,
+  ValidateExpirationDatePattern
+)
 
 const cardNumber = document.querySelector("#card-number")
 const cardNumberPattern = {
@@ -91,8 +91,6 @@ const cardNumberPattern = {
       return number.match(item.regex)
     })
 
-    setCardType(foundMask.cardtype)
-
     return foundMask
   },
 }
@@ -125,7 +123,7 @@ function updateCVC(code) {
 }
 
 cardNumberMasked.on("accept", () => {
-  const cardType = cardNumberMasked.masked.currentMask.cardType
+  const cardType = cardNumberMasked.masked.currentMask.cardtype
 
   setCardType(cardType)
 
