@@ -91,10 +91,58 @@ const cardNumberPattern = {
       return number.match(item.regex)
     })
 
-    console.log(foundMask)
+    setCardType(foundMask.cardtype)
 
     return foundMask
   },
 }
 
 const cardNumberMasked = Imask(cardNumber, cardNumberPattern)
+
+const addButton = document.querySelector("#add-card")
+addButton.addEventListener("click", () => {
+  alert("Cartão Adicionado!")
+})
+
+document.querySelector("form").addEventListener("submit", (event) => {
+  event.preventDefault()
+})
+
+const cardHolder = document.querySelector("#card-holder")
+cardHolder.addEventListener("input", () => {
+  const ccHolder = document.querySelector(".cc-holder .value")
+  ccHolder.innerText =
+    cardHolder.value.length === 0 ? "SEU NOME" : cardHolder.value
+})
+
+validadeCVCMasked.on("accept", () => {
+  updateCVC(validadeCVCMasked.value)
+})
+
+function updateCVC(code) {
+  const cvcSecurity = document.querySelector(".cc-security .value")
+  cvcSecurity.innerText = code.length === 0 ? "123" : code
+}
+
+cardNumberMasked.on("accept", () => {
+  const cardType = cardNumberMasked.masked.currentMask.cardType
+
+  setCardType(cardType)
+
+  updateCardNumber(cardNumberMasked.value)
+})
+
+function updateCardNumber(number) {
+  const ccNumber = document.querySelector(".cc-number")
+  ccNumber.innerText = number.length === 0 ? "1234 5678 9012 3456" : number
+}
+
+validateExpirationDateMasked.on("accept", () => {
+  updateExpirationDate(validateExpirationDateMasked.value)
+})
+
+function updateExpirationDate(date) {
+  const ccExpiration = document.querySelector(".cc-extra .value")
+
+  ccExpiration.innerText = date.length === 0 ? "MM/YY" : date
+}
