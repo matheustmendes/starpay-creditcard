@@ -22,6 +22,22 @@
   }
 }
 
+div#app {
+  animation: fromLeft 0.8s 0.1s backwards;
+}
+
+@keyframes fromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @media (min-width: 780px) {
   #app {
     grid-template-areas:
